@@ -4,6 +4,9 @@ import com.coding.ninja.springDataJpaJdbc.entity.Course;
 import com.coding.ninja.springDataJpaJdbc.entity.Passport;
 import com.coding.ninja.springDataJpaJdbc.entity.Review;
 import com.coding.ninja.springDataJpaJdbc.entity.Student;
+import com.coding.ninja.springDataJpaJdbc.inheritanceEntity.Employee;
+import com.coding.ninja.springDataJpaJdbc.inheritanceEntity.FullTimeEmployee;
+import com.coding.ninja.springDataJpaJdbc.inheritanceEntity.PartTimeEmployee;
 import com.coding.ninja.springDataJpaJdbc.repository.*;
 import jakarta.transaction.Transactional;
 import org.slf4j.LoggerFactory;
@@ -34,6 +37,9 @@ public class SpringDataJpaJdbcApplication implements CommandLineRunner {
 	@Autowired
 	ReviewRepository reviewRepository;
 
+	@Autowired
+	EmployeeRepository employeeRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataJpaJdbcApplication.class, args);
 	}
@@ -61,15 +67,21 @@ public class SpringDataJpaJdbcApplication implements CommandLineRunner {
 //		Optional<Passport> passport1 = passportRepository.findById(12);
 //		logger.error("Bidirectional Relationship"+ passport1.get().getStudent().toString());
 
-		Course course = new Course("My First Java Course");
-		Review myreview = new Review("5", "Superb course which gives us better idea about java");
-		course.addReview(myreview);
-		myreview.setCourse(course);
-		reviewRepository.save(myreview);
+//		Course course = new Course("My First Java Course");
+//		Review myreview = new Review("5", "Superb course which gives us better idea about java");
+//		course.addReview(myreview);
+//		myreview.setCourse(course);
+//		reviewRepository.save(myreview);
+//
+//		courseRepository.save(course);
 
-		courseRepository.save(course);
+		Employee emp1= new FullTimeEmployee("Mukesh", 100000L);
+		Employee emp2 = new PartTimeEmployee("SomeOne", 50L);
 
+		employeeRepository.insertEmployee(emp1);
+		employeeRepository.insertEmployee(emp2);
 
+		logger.error(employeeRepository.getEmployeeList().toString());
 
 
 

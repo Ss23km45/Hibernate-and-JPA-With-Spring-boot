@@ -22,8 +22,8 @@ public class PersonDaoJdbc {
 //    }
 
 //    @PersistenceContext
-    @Autowired
-    EntityManager entityManager;
+   @Autowired
+   EntityManager entityManager;
 
     public List<Person> getAll(){
         return entityManager.createQuery("select a from Person a", Person.class).getResultList();
