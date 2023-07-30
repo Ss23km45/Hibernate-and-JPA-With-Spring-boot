@@ -1,14 +1,9 @@
-package com.coding.ninja.springDataJpaJdbc.jdbc;
+package com.coding.ninja.springDataJpaJdbc.repository;
 
-import com.coding.ninja.springDataJpaJdbc.model.Person;
+import com.coding.ninja.springDataJpaJdbc.entity.Person;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

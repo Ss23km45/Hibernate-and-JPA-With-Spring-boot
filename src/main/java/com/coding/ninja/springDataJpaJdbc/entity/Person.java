@@ -1,4 +1,4 @@
-package com.coding.ninja.springDataJpaJdbc.model;
+package com.coding.ninja.springDataJpaJdbc.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
