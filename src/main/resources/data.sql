@@ -36,3 +36,11 @@ INSERT INTO Review (ID,rating,review,course_id) VALUES (333, '3.9','learnt very 
 INSERT INTO Review (ID,rating,review,course_id) VALUES (444, '4.2','learnt very good stuff from Mysql',41);
 INSERT INTO Review (ID,rating,review,course_id) VALUES (555, '4.23','learnt very good stuff from springboot',51);
 INSERT INTO Review (ID,rating,review,course_id) VALUES (666, '4.46','learnt very good stuff from JPA and hibernate',61);
+--Insert to STUDENTS_COURSE
+Insert into students_course(student_id, course_id) values (303,411);
+Insert into students_course(student_id, course_id) values (303, 51);
+Insert into students_course(student_id, course_id) values (404,411);
+Insert into students_course(student_id, course_id) values (404,51);
+Insert into students_course(student_id, course_id) values (101, 411);
+Insert into students_course(student_id, course_id) values (202, 51);
+
