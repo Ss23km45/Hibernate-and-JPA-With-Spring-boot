@@ -1,12 +1,17 @@
 package com.coding.ninja.springDataJpaJdbc.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Review {
+    public Review(String rating, String review) {
+        this.rating = rating;
+        this.review = review;
+    }
+
     @Id
     @GeneratedValue
     private int id;
@@ -39,5 +44,16 @@ public class Review {
 
     @Column(name = "REVIEW")
     private String review;
+
+    public Course getCourses() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    @ManyToOne
+    private Course course;
 
 }

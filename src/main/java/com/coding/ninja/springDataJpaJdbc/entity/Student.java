@@ -5,6 +5,9 @@ import jakarta.transaction.Transactional;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Student {
 
@@ -45,6 +48,24 @@ public class Student {
 //    @OneToOne(fetch = FetchType.LAZY)
     @OneToOne
     private Passport passport;
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    public void addCourses(Course course) {
+        this.courses.add(course);
+    }
+
+    @ManyToMany
+    @JoinTable(name = "STUDENTS_COURSE",
+                joinColumns = @JoinColumn(name = "Student_ID"),
+                inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
+    private List<Course> courses = new ArrayList<>();
 
     public Passport getPassport() {
         return passport;
